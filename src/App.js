@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import './App.css'
 
+const http = {
+}
+
 class App extends Component {
   constructor() {
     super()
@@ -13,9 +16,17 @@ class App extends Component {
     }
   }
 
-  _onUpdateQuery = (event) => {
-    this.setState({ query: event.target.value })
-    this.searchResults = 'https://www.google.co.jp/search?'
+  _onUpdateQuery = async(event) => {
+    this.setState({
+      query: event.target.value,
+    })
+
+    const google = await (await fetch('http://localhost:8080/search?q=' + event.target.value)).json()
+    this.setState({
+      searchResults: {
+        google,
+      },
+    })
   }
 
   render() {
@@ -32,11 +43,13 @@ class App extends Component {
             />
           </div>
           <div className="App-body-search">
-            {this.state.query}
+            <div className="App-body-search">
+              {this.state.query}
+            </div>
+            {this.state.searchResults.google.map(({ title, url, }) =>
+              <div key={url}>{title} {url}</div>
+            )}
           </div>
-          <iframe src="https://www.google.co.jp/search?q=hoge" title="iframe example 1" width="400" height="300">
-            <p>Your browser does not support iframes.</p>
-          </iframe>
         </div>
       </div>
     )

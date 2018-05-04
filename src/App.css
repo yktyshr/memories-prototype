@@ -261,6 +261,7 @@ p.note-just-saved{
 .App-body textarea:focus,.App-body textarea:active {
     appearance: none;
     -webkit-appearance: none;
+	outline: none;
 
 }
 

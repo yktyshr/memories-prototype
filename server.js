@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const client = require('cheerio-httpcli')
+const axios = require('axios')
 
 const searchGoogle = async(word) => {
   const res = await client.fetch('http://www.google.com/search', { q: word })
@@ -32,6 +33,11 @@ app.use((req, res, next) => {
 app.get('/search', async(req, res) => {
   const r = await searchGoogle(req.query.q)
   res.send(r)
+})
+
+app.get('/iframe', async(req, res) => {
+  const data = (await axios.get(req.query.url)).data
+  res.send(data)
 })
 
 app.listen(process.env.PORT || 8080, () => console.log('Example app listening on port 3000!'))

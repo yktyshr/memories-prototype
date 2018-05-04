@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
 
-const http = {
-}
-
 class App extends Component {
   constructor() {
     super()
@@ -37,10 +34,12 @@ class App extends Component {
         </header>
         <div className="App-body">
           <div className="App-body-note">
-            <input
+            <div
+              contentEditable={true}
               defaultValue={this.state.query}
               onChange={this._onUpdateQuery}
-            />
+            >hoge
+            </div>
           </div>
           <div className="App-body-search">
             <iframe src={'http://localhost:8080/iframe?url=https://qiita.com/sl2/items/1e503952b9506a0539ea'} title="iframe example 1" width="400" height="300">

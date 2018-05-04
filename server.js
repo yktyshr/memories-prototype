@@ -13,16 +13,16 @@ const searchGoogle = async(word) => {
   const searchResults = []
   $('.g').each(function (idx) {
     const h3 = $(this).find('h3 a')
+    const url = h3.url()
+    const title = h3.text()
+    const description = $(this).find('.st').text()
 
-    // if (searchResults.map(a => a.url).includes($(this).url())) {
-    //   console.log('dup')
-    //   return
-    // }
-    searchResults.push({
-      title: h3.text(),
-      url: h3.url(),
-      description: $(this).find('.st').text(),
-    })
+    if (!title || !url || searchResults.map(a => a.url).includes(url)) {
+      console.log('dup')
+      return
+    }
+
+    searchResults.push({ title, url, description })
   })
   return searchResults
 }

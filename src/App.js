@@ -47,6 +47,7 @@ class App extends Component<{}, State> {
   _onUpdateQuery = async(query: string) => {
     const google = await search(query)
     this.setState({
+      query,
       searchResults: {
         google,
       },
@@ -97,7 +98,14 @@ class App extends Component<{}, State> {
           </div>
 
           <div className="App-body-search">
-            {this.state.query}
+            {/*
+            <iframe src={'http://localhost:8080/iframe?url=https://qiita.com/sl2/items/1e503952b9506a0539ea'} title="iframe example 1" width="400" height="300">
+              <p>Your browser does not support iframes.</p>
+            </iframe>
+            */}
+            <div>
+              {this.state.query}
+            </div>
             {this.state.searchResults.google.map(({ title, url, }) =>
               <div key={url}>{title} {url}</div>
             )}

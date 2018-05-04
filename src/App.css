@@ -143,7 +143,7 @@ background-image: linear-gradient(-135deg, #8BD0E5 0%, #1F729A 100%);
 
 
 .App-body {
-  padding: 72px 0 0;
+  padding: 68px 0 0;
   display: flex;
   justify-content: space-between;
   /*margin-top: 72px;*/
@@ -189,14 +189,14 @@ article header{
 	flex-flow: row wrap;
 }
 .note-collaborator li{
-	width: 28px;
-	height: 28px;
-	border-radius: 28px;
+	width: 32px;
+	height: 32px;
+	border-radius: 32px;
 	display: inline-block;
 	margin-right: 8px;
 	background: #f1f1f1;
 	text-align: center;
-	line-height: 28px;
+	line-height: 32px;
 }
 .note-collaborator li i{
 	padding: 4px 0 0;
@@ -242,10 +242,51 @@ p.note-just-saved{
 .App-body-search{
 	width: 400px;
 	background: #FFF;
-	padding: 16px 32px;
+	padding: 64px 32px 16px;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+	overflow: auto;
+	position: relative;
+}
+.search-header{
+	position: fixed;
+    top: 64px;
+    right: 0;
+    width: 400px;
+    height: 52px;
+    background: #fff;
+    z-index: 101;
+    padding: 16px 32px;
+    border-bottom: 1px solid #eee;
+}
+.search-header span{
+    transform: translateY(-7px);
+    display: inline-block;
+    margin-left: 8px;
+ }
+
+
+
+.search-result-item{
+	padding: 12px 0;
 }
 
+.search-result-item a{
+	text-decoration: none;
+	color: #4A90E2;
+}
+
+.search-result-item p.search-url{
+	color: #246456;
+	opacity: 0.7;
+	font-size: 10px;
+}
+.search-result-item p.search-description{
+	color: #999;
+	font-size: 10px;
+    max-height: 50px;
+    overflow: hidden;
+	
+}
 
 
 

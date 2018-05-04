@@ -94,13 +94,14 @@ class App extends Component<{}, State> {
               <p>Your browser does not support iframes.</p>
             </iframe>
             */}
-            <div>
-              {this.state.query}
+            <div className="search-header">
+              <h2><i className="material-icons">search</i> <span>{this.state.query}</span></h2>
             </div>
             {this.state.searchResults.google.map(({ title, url, description }) =>
-              <div key={url}>
+              <div key={url} className="search-result-item">
                 <a href={url}>{title}</a>
-                <p>{description}</p>
+                <p className="search-url">{url}</p>
+                <p className="search-description">{description}</p>
               </div>
             )}
           </div>

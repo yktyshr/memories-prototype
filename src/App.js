@@ -76,8 +76,24 @@ class App extends Component<{}, State> {
 
         <div className="App-body">
           <div className="App-body-note">
-            <Note article={this.state.article} onChangeBody={e => this.setState({ article: { title: {}, body: e.target.value }})} />
-            {this.state.article.body}
+            <article>
+              <header>
+
+                <ul className="note-collaborator">
+                  <li><img src="user_1.png" /></li>
+                  <li><img src="user_2.png" /></li>
+                  <li><i className="material-icons">add</i></li>
+                </ul>
+
+                <p className="note-directory"><i className="material-icons">more_vert</i> 考察メモ</p>
+                <h1 className="note-title">タイトル</h1>
+                <p className="note-just-saved">10秒前に保存されました</p>
+
+
+              </header>
+              <Note article={this.state.article} onChangeBody={e => this.setState({ article: { title: {}, body: e.target.value }})} />
+              {this.state.article.body}
+            </article>
           </div>
 
 

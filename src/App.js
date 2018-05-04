@@ -38,12 +38,14 @@ class App extends Component<{}, State> {
     }
   }
 
-  _onUpdateQuery = async(event: any) => {
-    this.setState({
-      query: event.target.value,
-    })
+  _onUpdateArticle = (article: Article) => {
+    this.setState({ article })
+    console.log(article)
+    this._onUpdateQuery(article.body)
+  }
 
-    const google = await search(event.target.value)
+  _onUpdateQuery = async(query: string) => {
+    const google = await search(query)
     this.setState({
       searchResults: {
         google,
@@ -78,8 +80,8 @@ class App extends Component<{}, State> {
               <header>
 
                 <ul className="note-collaborator">
-                  <li><img src="user_1.png" /></li>
-                  <li><img src="user_2.png" /></li>
+                  <li><img alt="hoge" src="user_1.png" /></li>
+                  <li><img alt="hoge" src="user_2.png" /></li>
                   <li><i className="material-icons">add</i></li>
                 </ul>
 
@@ -89,18 +91,13 @@ class App extends Component<{}, State> {
 
 
               </header>
-              <Note article={this.state.article} onChange={article => this.setState({ article })} />
+              <Note article={this.state.article} onChange={this._onUpdateArticle} />
               {this.state.article.body}
             </article>
           </div>
 
           <div className="App-body-search">
-            <iframe src={'http://localhost:8080/iframe?url=https://qiita.com/sl2/items/1e503952b9506a0539ea'} title="iframe example 1" width="400" height="300">
-              <p>Your browser does not support iframes.</p>
-            </iframe>
-            <div className="App-body-search">
-              {this.state.query}
-            </div>
+            {this.state.query}
             {this.state.searchResults.google.map(({ title, url, }) =>
               <div key={url}>{title} {url}</div>
             )}

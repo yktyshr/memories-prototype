@@ -2,7 +2,9 @@
 
 import React, { Component } from 'react'
 import { search } from 'src/services/api'
-import './App.css'
+import Note from 'src/components/Note/Note'
+import Article from 'src/models/Article'
+import 'src/App.css'
 
 type SearchResults = {
   url: string;
@@ -16,6 +18,7 @@ type Providers = {
 
 type State = {
   query: string;
+  article: Article;
   searchResults: Providers;
 }
 
@@ -25,6 +28,10 @@ class App extends Component<{}, State> {
 
     this.state = {
       query: 'a',
+      article: {
+        title: '',
+        body: '安藤忠雄との比較',
+      },
       searchResults: {
         google: [],
       },
@@ -52,11 +59,8 @@ class App extends Component<{}, State> {
         </header>
         <div className="App-body">
           <div className="App-body-note">
-            <input
-              contentEditable={true}
-              defaultValue={this.state.query}
-              onChange={this._onUpdateQuery}
-            />hoge
+            <Note article={this.state.article} onChangeBody={e => this.setState({ article: { title: {}, body: e.target.value }})} />
+            {this.state.article.body}
           </div>
           <div className="App-body-search">
             <iframe src={'http://localhost:8080/iframe?url=https://qiita.com/sl2/items/1e503952b9506a0539ea'} title="iframe example 1" width="400" height="300">

@@ -65,14 +65,12 @@ class App extends Component<{}, State> {
             </div>
             <div className="header-right">
               <div className="header-user-icon-wrap">
-                <img src="user_1.png" />
+                <img alt="User" src="user_1.png" />
               </div>
               <i className="material-icons">more_vert</i>
             </div>
           </div>
         </header>
-
-
 
         <div className="App-body">
           <div className="App-body-note">
@@ -91,11 +89,10 @@ class App extends Component<{}, State> {
 
 
               </header>
-              <Note article={this.state.article} onChangeBody={e => this.setState({ article: { title: {}, body: e.target.value }})} />
+              <Note article={this.state.article} onChange={article => this.setState({ article })} />
               {this.state.article.body}
             </article>
           </div>
-
 
           <div className="App-body-search">
             <iframe src={'http://localhost:8080/iframe?url=https://qiita.com/sl2/items/1e503952b9506a0539ea'} title="iframe example 1" width="400" height="300">

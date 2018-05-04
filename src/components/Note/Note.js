@@ -2,21 +2,25 @@
 
 import React from 'react'
 import Article from 'src/models/Article'
+import NoteBody from 'src/components/Note/NoteBody'
 
 type Props = {
   article: Article;
-  onChangeBody: (event: any) => void;
+  onChange: (article: Article) => void;
 }
 
-const Note = ({ article, onChangeBody }: Props) => (
-  <div>
-    <input
-      contentEditable={true}
-      defaultValue={article.body}
-      onChange={onChangeBody}
-    />
-    {article.body}
-  </div>
-)
+const Note = ({ article, onChange }: Props) => {
+  const _onChangeBody = (body: string) => {
+    onChange(
+      Object.assign(article, { body })
+    )
+  }
+
+  return (
+    <div>
+      <NoteBody body={article.body} onChangeBody={_onChangeBody} />
+    </div>
+  )
+}
 
 export default Note

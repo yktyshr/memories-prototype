@@ -11,6 +11,10 @@ const searchGoogle = async(word) => {
 
   const searchResults = []
   $('h3 a').each(function (idx) {
+    if (searchResults.map(a => a.url).includes($(this).url())) {
+      console.log('dup')
+      return
+    }
     searchResults.push({
       title: $(this).text(),
       url: $(this).url(),

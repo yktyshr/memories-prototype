@@ -65,6 +65,8 @@ background-image: linear-gradient(-135deg, #8BD0E5 0%, #1F729A 100%);
 .App-header .header-right{
 	text-align: right;
 	width: 20%;
+	display: flex;
+	justify-content: flex-end;
 }
 
 .App-header h1{
@@ -187,14 +189,14 @@ article header{
 	flex-flow: row wrap;
 }
 .note-collaborator li{
-	width: 32px;
-	height: 32px;
-	border-radius: 32px;
+	width: 28px;
+	height: 28px;
+	border-radius: 28px;
 	display: inline-block;
 	margin-right: 8px;
 	background: #f1f1f1;
 	text-align: center;
-	line-height: 32px;
+	line-height: 28px;
 }
 .note-collaborator li i{
 	padding: 4px 0 0;

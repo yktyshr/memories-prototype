@@ -55,13 +55,32 @@ class App extends Component<{}, State> {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Memories</h1>
+          <div className="container">
+            <div className="header-left">
+              <i className="material-icons">dehaze</i>
+              <h1 className="App-title">Memories</h1>
+            </div>
+            <div className="header-center">
+              <input type="search" placeholder="検索キーワードを入力"/>
+            </div>
+            <div className="header-right">
+              <div className="header-user-icon-wrap">
+                <img src="user_1.png" />
+              </div>
+              <i className="material-icons">more_vert</i>
+            </div>
+          </div>
         </header>
+
+
+
         <div className="App-body">
           <div className="App-body-note">
             <Note article={this.state.article} onChangeBody={e => this.setState({ article: { title: {}, body: e.target.value }})} />
             {this.state.article.body}
           </div>
+
+
           <div className="App-body-search">
             <iframe src={'http://localhost:8080/iframe?url=https://qiita.com/sl2/items/1e503952b9506a0539ea'} title="iframe example 1" width="400" height="300">
               <p>Your browser does not support iframes.</p>

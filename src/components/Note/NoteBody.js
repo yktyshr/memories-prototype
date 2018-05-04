@@ -5,28 +5,38 @@ import React from 'react'
 type Props = {
   body: string;
   onChangeBody: (body: string) => void;
+  onChangePosition: (position: number) => void;
 }
 
-const NoteBody = ({ body, onChangeBody }: Props) => {
+const NoteBody = ({ body, onChangeBody, onChangePosition }: Props) => {
   const _onChange = (event: any) => {
-    console.log(event)
     onChangeBody(event.target.value)
+  }
+
+  const _onKeyUp = (event: any) => {
+    onChangePosition(event.target.selectionStart)
   }
 
   return (
     <div>
+      {/*
       <div
         contentEditable
         onChange={_onChange}
       >
         {body}
       </div>
+      */}
 
-      <input
+      <textarea
         defaultValue={body}
         onChange={_onChange}
+        onKeyUp={_onKeyUp}
+        autoFocus
       />
-      {body}
+      <p>
+        {body}
+      </p>
     </div>
   )
 }

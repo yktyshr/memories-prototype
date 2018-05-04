@@ -1,6 +1,6 @@
 // @flow
 
-const isWordBreak = (word: string): boolean => Boolean(word) && word.match(/[ \n　,/]/) !== null
+const isWordBreak = (word: string): boolean => Boolean(word) && word.match(/[ \n　,/-]/) !== null
 
 const getWordStart = (text: string, index: number): number => {
   if (index === 0) {

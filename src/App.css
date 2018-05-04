@@ -9,7 +9,7 @@
 }
 
 body{
-  font-family: 'helvetica', "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-family: 'Roboto', "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   font-size: 12px;
   line-height: 1.67;
   background: #fafafa;
@@ -193,7 +193,7 @@ article header{
 	height: 32px;
 	border-radius: 32px;
 	display: inline-block;
-	margin-right: 8px;
+	margin-right: 6px;
 	background: #f1f1f1;
 	text-align: center;
 	line-height: 32px;
@@ -258,6 +258,9 @@ p.note-just-saved{
     padding: 16px 32px;
     border-bottom: 1px solid #eee;
 }
+.search-header i{
+	color: #aaa;
+}
 .search-header span{
     transform: translateY(-7px);
     display: inline-block;
@@ -272,7 +275,7 @@ p.note-just-saved{
 
 .search-result-item a{
 	text-decoration: none;
-	color: #4A90E2;
+	color: #397DCC;
 }
 
 .search-result-item p.search-url{

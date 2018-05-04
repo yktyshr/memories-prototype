@@ -108,7 +108,7 @@ class App extends Component<{}, State> {
             </div>
             {this.state.searchResults.google.map(({ title, url, description }) =>
               <div key={url} className="search-result-item">
-                <a href={url}>{title}</a>
+                <a target="_blank" href={url}>{title}</a>
                 <p className="search-url">{url}</p>
                 <p className="search-description">{description}</p>
               </div>

@@ -1,11 +1,11 @@
 
 
 *{
-	box-sizing: content-box;
-	-moz-box-sizing: content-box;
-	-webkit-box-sizing: content-box;
-	-o-box-sizing: content-box;
-	-ms-box-sizing: content-box;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
 }
 
 body{
@@ -144,7 +144,7 @@ background-image: linear-gradient(-135deg, #8BD0E5 0%, #1F729A 100%);
   padding: 72px 0 0;
   display: flex;
   justify-content: space-between;
-  margin-top: 72px;
+  /*margin-top: 72px;*/
 }
 
 
@@ -172,7 +172,68 @@ article{
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
 	margin: 0 auto;
 	width: 800px;
+	padding: 40px 80px;
 }
+
+
+article header{
+	border-bottom: #eee 1px solid;
+	padding-bottom: 24px;
+	margin-bottom: 24px;
+}
+
+.note-collaborator{
+	display: flex;
+	flex-flow: row wrap;
+}
+.note-collaborator li{
+	width: 32px;
+	height: 32px;
+	border-radius: 32px;
+	display: inline-block;
+	margin-right: 8px;
+	background: #f1f1f1;
+	text-align: center;
+	line-height: 32px;
+}
+.note-collaborator li i{
+	padding: 4px 0 0;
+}
+.note-collaborator li img{
+	width: 100%;
+}
+
+
+p.note-directory{
+	font-size: 10px;
+	color: #999;
+	margin-top: 32px;
+	line-height: 20px
+}
+p.note-directory i{
+	font-size: 16px;
+}
+
+p.note-directory span{
+	display: inline-block;
+	transform: translateY(-4px);
+	margin-left: 4px;
+}
+
+
+h1.note-title{
+	font-size: 24px;
+	margin: 8px 0 4px;
+	font-weight: bold;
+	color: #333;
+}
+
+p.note-just-saved{
+	font-size: 10px;
+	color: #999;
+}
+
+
 
 
 

@@ -83,7 +83,7 @@ class App extends Component<{}, State> {
                   <li><i className="material-icons">add</i></li>
                 </ul>
 
-                <p className="note-directory"><i className="material-icons">more_vert</i> 考察メモ</p>
+                <p className="note-directory"><i className="material-icons">folder</i> <span>考察メモ</span></p>
                 <h1 className="note-title">タイトル</h1>
                 <p className="note-just-saved">10秒前に保存されました</p>
 

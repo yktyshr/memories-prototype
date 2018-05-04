@@ -48,9 +48,11 @@ class App extends Component<{}, State> {
     if (this.state.query === query) {
       return
     }
-    const google = await search(query)
     this.setState({
       query,
+    })
+    const google = await search(query)
+    this.setState({
       searchResults: {
         google,
       },
@@ -70,7 +72,7 @@ class App extends Component<{}, State> {
         <Header />
         <div className="App-body">
           <div className="App-body-note">
-              <Note article={this.state.article} onChange={this._onUpdateArticle} onChangePosition={this._onChangePosition} />
+            <Note article={this.state.article} onChange={this._onUpdateArticle} onChangePosition={this._onChangePosition} />
           </div>
 
           <div className="App-body-search">

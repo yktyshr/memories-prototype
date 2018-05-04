@@ -60,6 +60,7 @@ class App extends Component<{}, State> {
   }
 
   _onChangePosition = (position: number) => {
+    console.log(position)
     const cword = getCurrentWord(this.state.article.body, position)
     if (cword.includes('#')) {
       this._onUpdateQuery(cword.replace('#', '').replace(' ', ''))

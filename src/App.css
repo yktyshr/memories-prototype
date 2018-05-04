@@ -189,14 +189,14 @@ article header{
 	flex-flow: row wrap;
 }
 .note-collaborator li{
-	width: 28px;
-	height: 28px;
-	border-radius: 28px;
+	width: 32px;
+	height: 32px;
+	border-radius: 32px;
 	display: inline-block;
 	margin-right: 8px;
 	background: #f1f1f1;
 	text-align: center;
-	line-height: 28px;
+	line-height: 32px;
 }
 .note-collaborator li i{
 	padding: 4px 0 0;
@@ -244,8 +244,30 @@ p.note-just-saved{
 	background: #FFF;
 	padding: 16px 32px;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+	overflow: auto;
 }
 
+.search-result-item{
+	padding: 12px 0;
+}
+
+.search-result-item a{
+	text-decoration: none;
+	color: #4A90E2;
+}
+
+.search-result-item p.search-url{
+	color: #246456;
+	opacity: 0.7;
+	font-size: 10px;
+}
+.search-result-item p.search-description{
+	color: #999;
+	font-size: 10px;
+    max-height: 50px;
+    overflow: hidden;
+	
+}
 
 
 

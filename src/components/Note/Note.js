@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Article from 'src/models/Article'
+import NoteHeader from 'src/components/Note/NoteHeader'
 import NoteBody from 'src/components/Note/NoteBody'
 import _ from 'lodash'
 
@@ -17,9 +18,10 @@ const Note = ({ article, onChange, onChangePosition }: Props) => {
   }
 
   return (
-    <div>
+    <article>
+      <NoteHeader article={article} />
       <NoteBody body={article.body} onChangeBody={_onChangeBody} onChangePosition={onChangePosition} />
-    </div>
+    </article>
   )
 }
 

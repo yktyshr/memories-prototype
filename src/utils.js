@@ -12,7 +12,7 @@ const getWordStart = (text: string, index: number): number => {
   return getWordStart(text, index - 1)
 }
 
-const getWordEnd = (text: string, index: number): number=> {
+const getWordEnd = (text: string, index: number): number => {
   if (! text[index]) {
     return text.length // TODO: When cursor is at the end of line, always returns true
   }

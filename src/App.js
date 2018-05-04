@@ -27,7 +27,7 @@ class App extends Component<{}, State> {
     super()
 
     this.state = {
-      query: 'a',
+      query: '',
       article: {
         title: '',
         body: '安藤忠雄との比較',

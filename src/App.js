@@ -22,6 +22,33 @@ type State = {
   searchResults: Providers;
 }
 
+const getWordStart = (text, index) => {
+  if (! text[index]) {
+    return 0
+  }
+  if (text[index] === ' ') {
+    return index
+  }
+  return getWordStart(text, index - 1)
+}
+
+const getWordEnd = (text, index) => {
+  if (! text[index]) {
+    return text.length // TODO: When cursor is at the end of line, always returns true
+  }
+  if (text[index] === ' ') {
+    return index
+  }
+  return getWordEnd(text, index + 1)
+}
+
+const getCurrentWord = (text, index) => {
+  const start = getWordStart(text, index)
+  const end = getWordEnd(text, index)
+
+  return text.slice(start, end)
+}
+
 class App extends Component<{}, State> {
   constructor() {
     super()
@@ -40,8 +67,6 @@ class App extends Component<{}, State> {
 
   _onUpdateArticle = (article: Article) => {
     this.setState({ article })
-    console.log(article)
-    this._onUpdateQuery(article.body)
   }
 
   _onUpdateQuery = async(query: string) => {
@@ -52,6 +77,13 @@ class App extends Component<{}, State> {
         google,
       },
     })
+  }
+
+  _onChangePosition = (position: number) => {
+    const cword = getCurrentWord(this.state.article.body, position)
+    if (cword.includes('#')) {
+      this._onUpdateQuery(cword)
+    }
   }
 
   render() {
@@ -92,8 +124,7 @@ class App extends Component<{}, State> {
 
 
               </header>
-              <Note article={this.state.article} onChange={this._onUpdateArticle} />
-              {this.state.article.body}
+              <Note article={this.state.article} onChange={this._onUpdateArticle} onChangePosition={this._onChangePosition} />
             </article>
           </div>
 

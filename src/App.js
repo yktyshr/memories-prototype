@@ -1,7 +1,25 @@
+// @flow
+
 import React, { Component } from 'react'
+import { search } from 'src/services/api'
 import './App.css'
 
-class App extends Component {
+type SearchResults = {
+  url: string;
+  title: string;
+  description: string;
+}
+
+type Providers = {
+  google: Array<SearchResults>;
+}
+
+type State = {
+  query: string;
+  searchResults: Providers;
+}
+
+class App extends Component<{}, State> {
   constructor() {
     super()
 
@@ -13,12 +31,12 @@ class App extends Component {
     }
   }
 
-  _onUpdateQuery = async(event) => {
+  _onUpdateQuery = async(event: any) => {
     this.setState({
       query: event.target.value,
     })
 
-    const google = await (await fetch('http://localhost:8080/search?q=' + event.target.value)).json()
+    const google = await search(event.target.value)
     this.setState({
       searchResults: {
         google,
@@ -34,18 +52,14 @@ class App extends Component {
         </header>
         <div className="App-body">
           <div className="App-body-note">
-            <div
+            <input
               contentEditable={true}
               defaultValue={this.state.query}
               onChange={this._onUpdateQuery}
-            >hoge
-            </div>
+            />hoge
           </div>
           <div className="App-body-search">
             <iframe src={'http://localhost:8080/iframe?url=https://qiita.com/sl2/items/1e503952b9506a0539ea'} title="iframe example 1" width="400" height="300">
-              <p>Your browser does not support iframes.</p>
-            </iframe>
-            <iframe src={'http://localhost:8080/iframe?url=https://www.google.co.jp/search?q=' + this.state.query} title="iframe example 2" width="400" height="300">
               <p>Your browser does not support iframes.</p>
             </iframe>
             <div className="App-body-search">

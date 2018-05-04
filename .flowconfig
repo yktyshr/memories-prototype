@@ -8,4 +8,7 @@
 
 [options]
 
+module.name_mapper='^src' ->'<PROJECT_ROOT>/src'
+
+
 [strict]

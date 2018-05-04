@@ -9,6 +9,7 @@ type Props = {
 
 const NoteBody = ({ body, onChangeBody }: Props) => {
   const _onChange = (event: any) => {
+    console.log(event)
     onChangeBody(event.target.value)
   }
 

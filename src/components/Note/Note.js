@@ -3,6 +3,7 @@
 import React from 'react'
 import Article from 'src/models/Article'
 import NoteBody from 'src/components/Note/NoteBody'
+import _ from 'lodash'
 
 type Props = {
   article: Article;
@@ -11,9 +12,7 @@ type Props = {
 
 const Note = ({ article, onChange }: Props) => {
   const _onChangeBody = (body: string) => {
-    onChange(
-      Object.assign(article, { body })
-    )
+    onChange(_.merge(article, { body }))
   }
 
   return (

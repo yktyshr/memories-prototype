@@ -106,8 +106,11 @@ class App extends Component<{}, State> {
             <div>
               {this.state.query}
             </div>
-            {this.state.searchResults.google.map(({ title, url, }) =>
-              <div key={url}>{title} {url}</div>
+            {this.state.searchResults.google.map(({ title, url, description }) =>
+              <div key={url}>
+                <a href={url}>{title}</a>
+                <p>{description}</p>
+              </div>
             )}
           </div>
         </div>

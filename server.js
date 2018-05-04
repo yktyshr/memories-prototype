@@ -11,14 +11,17 @@ const searchGoogle = async(word) => {
   console.log(title)
 
   const searchResults = []
-  $('h3 a').each(function (idx) {
-    if (searchResults.map(a => a.url).includes($(this).url())) {
-      console.log('dup')
-      return
-    }
+  $('.g').each(function (idx) {
+    const h3 = $(this).find('h3 a')
+
+    // if (searchResults.map(a => a.url).includes($(this).url())) {
+    //   console.log('dup')
+    //   return
+    // }
     searchResults.push({
-      title: $(this).text(),
-      url: $(this).url(),
+      title: h3.text(),
+      url: h3.url(),
+      description: $(this).find('.st').text(),
     })
   })
   return searchResults

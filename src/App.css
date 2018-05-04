@@ -78,7 +78,7 @@ body{
 	height: 72px;
 	display: block;
 	line-height: 72px;
-	
+
 
 }
 
@@ -114,7 +114,7 @@ body{
     color: #fff; }
 
 ::-webkit-input-placeholder {
-    color: #fff; 
+    color: #fff;
     opacity: 0.5;
     }
 
@@ -133,6 +133,7 @@ body{
   /*padding: 20px;*/
   display: flex;
   justify-content: space-between;
+  margin-top: 72px;
 }
 
 

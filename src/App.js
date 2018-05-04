@@ -3,8 +3,10 @@
 import React, { Component } from 'react'
 import { search } from 'src/services/api'
 import Note from 'src/components/Note/Note'
+import Header from 'src/components/Header/Header'
 import Article from 'src/models/Article'
 import 'src/App.css'
+import { getCurrentWord } from 'src/utils'
 
 type SearchResults = {
   url: string;
@@ -20,33 +22,6 @@ type State = {
   query: string;
   article: Article;
   searchResults: Providers;
-}
-
-const getWordStart = (text, index) => {
-  if (! text[index]) {
-    return 0
-  }
-  if (text[index] === ' ') {
-    return index
-  }
-  return getWordStart(text, index - 1)
-}
-
-const getWordEnd = (text, index) => {
-  if (! text[index]) {
-    return text.length // TODO: When cursor is at the end of line, always returns true
-  }
-  if (text[index] === ' ') {
-    return index
-  }
-  return getWordEnd(text, index + 1)
-}
-
-const getCurrentWord = (text, index) => {
-  const start = getWordStart(text, index)
-  const end = getWordEnd(text, index)
-
-  return text.slice(start, end)
 }
 
 class App extends Component<{}, State> {
@@ -70,6 +45,9 @@ class App extends Component<{}, State> {
   }
 
   _onUpdateQuery = async(query: string) => {
+    if (this.state.query === query) {
+      return
+    }
     const google = await search(query)
     this.setState({
       query,
@@ -82,36 +60,18 @@ class App extends Component<{}, State> {
   _onChangePosition = (position: number) => {
     const cword = getCurrentWord(this.state.article.body, position)
     if (cword.includes('#')) {
-      this._onUpdateQuery(cword)
+      this._onUpdateQuery(cword.replace('#', '').replace(' ', ''))
     }
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <div className="container">
-            <div className="header-left">
-              <i className="material-icons">dehaze</i>
-              <h1 className="App-title">Memories</h1>
-            </div>
-            <div className="header-center">
-              <input type="search" placeholder="検索キーワードを入力"/>
-            </div>
-            <div className="header-right">
-              <div className="header-user-icon-wrap">
-                <img alt="User" src="user_1.png" />
-              </div>
-              <i className="material-icons">more_vert</i>
-            </div>
-          </div>
-        </header>
-
+        <Header />
         <div className="App-body">
           <div className="App-body-note">
             <article>
               <header>
-
                 <ul className="note-collaborator">
                   <li><img alt="hoge" src="user_1.png" /></li>
                   <li><img alt="hoge" src="user_2.png" /></li>

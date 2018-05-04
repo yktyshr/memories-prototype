@@ -15,7 +15,9 @@ body{
   background: #fafafa;
 }
 
-
+input[type="text"], textarea, input[type="submit"]{
+	-webkit-appearance: none!important;
+}
 
 
 
@@ -184,6 +186,12 @@ article header{
 	margin-bottom: 24px;
 }
 
+article header input{
+	border: none;
+	border-bottom: #eee 1px solid;
+}
+
+
 .note-collaborator{
 	display: flex;
 	flex-flow: row wrap;
@@ -234,6 +242,22 @@ h1.note-title{
 p.note-just-saved{
 	font-size: 10px;
 	color: #999;
+}
+
+
+.App-body textarea{
+    margin: 0px!important;
+    width: 100%!important;
+    height: auto!important;
+    border: 0!important;
+    line-height: 1.7!important;	
+    min-height: 1000px;
+    
+}
+.App-body textarea:focus,.App-body textarea:active {
+    appearance: none;
+    -webkit-appearance: none;
+    
 }
 
 

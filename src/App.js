@@ -79,7 +79,8 @@ class App extends Component<{}, State> {
                 </ul>
 
                 <p className="note-directory"><i className="material-icons">folder</i> <span>考察メモ</span></p>
-                <h1 className="note-title">タイトル</h1>
+                <h1 className="note-title">無題のノート
+                </h1>
                 <p className="note-just-saved">10秒前に保存されました</p>
 
 

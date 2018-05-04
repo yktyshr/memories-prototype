@@ -1,6 +1,6 @@
 // @flow
 
-const isWordBreak = (word: string): boolean => (word === ' ' || word === "\n")
+const isWordBreak = (word: string): boolean => Boolean(word) && word.match(/[ \n　,/-]/) !== null
 
 const getWordStart = (text: string, index: number): number => {
   if (index === 0) {
@@ -14,7 +14,7 @@ const getWordStart = (text: string, index: number): number => {
 
 const getWordEnd = (text: string, index: number): number => {
   if (! text[index]) {
-    return text.length // TODO: When cursor is at the end of line, always returns true
+    return text.length
   }
   if (isWordBreak(text[index])) {
     return index
